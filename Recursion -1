@@ -1,0 +1,76 @@
+l. Print an increasing-decreasing sequence using recursion
+Example:
+If n = 5, the output should be:1 2 3 4 5 4 3 2 1
+
+        #include<bits/stdc++.h>
+        using namespace std;
+        void print1(int n){
+            if(n==0)return ;
+            print1(n-1);
+            cout<<n<<" ";
+        }
+        void print2(int n){
+            if(n==0)return ;
+            cout<<n<<" ";
+            print2(n-1);
+        }
+        int main(){
+            int n;
+            cin>>n;
+            print1(n);
+            print2(n-1);
+            return 0;
+        }
+
+2. Write a program to print the sum of all odd numbers from a to b (inclusive) using
+recursion.
+          #include<bits/stdc++.h>
+          using namespace std;
+          int odd_sum(int a,int b){
+              if(a>b)return 0;
+              return a+odd_sum(a+2,b);
+          }
+          int main(){
+              int a,b;
+              cin>>a>>b;
+              if(a%2!=0)a+=2;
+              else a++;
+              cout<<odd_sum(a,b);
+              return 0;
+          }
+
+3. Given a positive integer, return true if it is a power of 2 using recursion.
+
+            #include<bits/stdc++.h>
+            using namespace std;
+            bool is_power_of_2(int n){
+                if(n==1)return true;
+                if(n%2!=0 or n==0)return false;
+                return is_power_of_2(n/2);
+            }
+            int main(){
+                int n;
+                cin>>n;
+                if(is_power_of_2(n))cout<<"Yes "<<n<<" is a power of 2";
+                else cout<<"No "<<n<<" is not a power of 2";
+                return 0;
+            }
+
+4. There are n stairs, and a person standing at the bottom wants to climb the stairs to
+reach the nth stair. The person can climb either 1, 2, or 3 stairs at a time. Write a
+program to count the number of ways the person can reach the top using recursion.
+
+                  #include<bits/stdc++.h>
+                  using namespace std;
+                  int ways(int n){
+                      if(n<0)return 0;
+                      if(n==0)return 1;
+                      return ways(n-1)+ways(n-2)+ways(n-3);
+                  }
+                  int main(){
+                      int n;
+                      cout << "Enter the number of stairs: ";
+                      cin>>n;
+                      cout<<"no of ways are "<<ways(n);
+                      return 0;
+                  }
