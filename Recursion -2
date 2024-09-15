@@ -1,0 +1,62 @@
+(1) Write a program to calculate the sum of the digits of a given positive integer using
+recursion.
+          #include<bits/stdc++.h>
+          using namespace std;
+          int sum(int n){
+              if(n==0)return 0;
+              return (n%10)+sum(n/10);
+          }
+          int main(){
+              int integer;
+              cin>>integer;
+              cout<<sum(integer);
+              return 0;
+          }
+
+(2) Write a program to calculate the reverse of a given positive integer using recursion.
+
+            #include<bits/stdc++.h>
+            using namespace std;
+            int rev(int n,int sum){
+                if(n==0)return sum;
+                return rev(n/10,sum*10+n%10);
+            }
+            int main(){
+                int n;
+                cin>>n;
+                cout<<rev(n,0);
+                return 0;
+            }
+
+(3) Given an integer num, return the number of steps to reduce it to zero. In one step, if the
+    current number is even, you have to divide it by 2, otherwise, you have to subtract 1
+    from it. [Leetcode 1342]
+              #include<bits/stdc++.h>
+              using namespace std;
+              int no_of_steps(int n){
+                  if(n==0)return 0;
+                  if(n%2==0)return 1+no_of_steps(n/2);
+                  return 1 + no_of_steps(n-1);
+              }
+              int main(){
+                  int num;
+                  cin>>num;
+                  cout<<no_of_steps(num);
+                  return 0;
+              }
+(4)  Predict the output:
+      int fun(int n) {
+      if (n <= 1) return 1;
+      if (n % 2 == 0) return fun(n / 2);
+      return fun(n / 2) + fun(n / 2 + 1);
+      }
+Ans:- For n = 0:
+      fun(0) returns 1 (since n <= 1).
+      For n = 1:
+      fun(1) returns 1 (since n <= 1).
+      For n = 2:
+      fun(2) returns fun(1) which is 1 (since n is even and fun(1) returns 1).
+      For n = 3:
+      fun(3) returns fun(1) + fun(2) which is 1 + 1 = 2 (since n is odd, fun(1) and fun(2) both return 1).
+      For n = 4:
+      fun(4) returns fun(2) which is 1 (since n is even and fun(2) returns 1).
